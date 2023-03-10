@@ -21,6 +21,10 @@ use Illuminate\Support\Facades\Route;
 route::post('/login',[AuthC::class,'login']);
 
 
-Route::apiResource('/peminjaman', peminjamanC::class);
+Route::apiResource('/peminjaman', peminjamanC::class)->middleware(['auth:sanctum']);
 Route::apiResource('/buku', bukuC::class);
-Route::apiResource('/user', userC::class);
+
+Route::apiResource('/user', UserC::class)->middleware(['auth:sanctum']);
+
+
+    
